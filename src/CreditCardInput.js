@@ -17,13 +17,14 @@ import { InjectedProps } from "./connectToState";
 
 const s = StyleSheet.create({
   container: {
-    alignItems: "center",
+    alignItems: "center"
   },
   form: {
     marginTop: 20,
   },
   inputContainer: {
-    marginLeft: 20,
+    marginLeft: 0,
+    marginVertical: 10
   },
   inputLabel: {
     fontWeight: "bold",
@@ -33,9 +34,9 @@ const s = StyleSheet.create({
   },
 });
 
-const CVC_INPUT_WIDTH = 103;
+const CVC_INPUT_WIDTH = Dimensions.get("window").width * 0.25 ;
 const EXPIRY_INPUT_WIDTH = CVC_INPUT_WIDTH;
-const CARD_NUMBER_INPUT_WIDTH_OFFSET = 10;
+const CARD_NUMBER_INPUT_WIDTH_OFFSET = 0;
 const CARD_NUMBER_INPUT_WIDTH = Dimensions.get("window").width * 0.6;
 const NAME_INPUT_WIDTH = CARD_NUMBER_INPUT_WIDTH;
 const PREVIOUS_FIELD_OFFSET = 10;
@@ -85,7 +86,7 @@ export default class CreditCardInput extends Component {
     },
     inputContainerStyle: {
       borderBottomWidth: 1,
-      borderBottomColor: "black",
+      borderBottomColor: "black"
     },
     validColor: "",
     invalidColor: "red",
@@ -176,7 +177,7 @@ export default class CreditCardInput extends Component {
           { requiresCVC &&
             <CCInput {...this._inputProps("cvc")}
               keyboardType="numeric"
-              containerStyle={[s.inputContainer, inputContainerStyle, { width: CVC_INPUT_WIDTH }]} /> }
+              containerStyle={[s.inputContainer, inputContainerStyle, { width: CVC_INPUT_WIDTH, marginLeft: 40 }]} /> }
               </View>
           { requiresName &&
             <CCInput {...this._inputProps("name")}
